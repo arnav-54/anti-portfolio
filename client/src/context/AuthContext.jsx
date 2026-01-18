@@ -7,8 +7,8 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Configure axios base URL - In production, this should be env variable
-    axios.defaults.baseURL = '/api';
+    // Configure axios base URL
+    axios.defaults.baseURL = import.meta.env.VITE_API_URL || '/api';
     axios.defaults.withCredentials = true;
 
     useEffect(() => {

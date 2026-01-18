@@ -12,8 +12,22 @@ const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'http://localhost:5173',
+  'http://localhost:3000'
+].filter(Boolean);
+
 app.use(cors({
-  origin: true, // Allow all origins (reflects the request origin)
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());
@@ -33,8 +47,8 @@ app.use('/api/experience', experienceRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/profile', require('./routes/profile.routes'));
 
-// Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
+// Serve static assets in production (Only if SERVE_FRONTEND is set to true)
+if (process.env.NODE_ENV === 'production' && process.env.SERVE_FRONTEND === 'true') {
   // Set static folder
   app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -56,4 +70,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
 
