@@ -1,0 +1,12 @@
+{
+    "name": "anti-portfolio",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node server/index.js",
+        "build": "npm run install:all && npm run build:client && npm run generate:prisma",
+        "install:all": "npm install --prefix client && npm install --prefix server",
+        "build:client": "npm run build --prefix client",
+        "generate:prisma": "npx prisma generate --schema=server/prisma/schema.prisma",
+        "seed": "node server/prisma/seed.js"
+    }
+}
