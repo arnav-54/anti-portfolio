@@ -2,6 +2,7 @@
     "name": "anti-portfolio",
     "version": "1.0.0",
     "scripts": {
+        "dev": "node dev.js",
         "start": "node server/index.js",
         "build": "npm run install:all && npm run build:client && npm run generate:prisma",
         "install:all": "npm install --prefix client && npm install --prefix server",
