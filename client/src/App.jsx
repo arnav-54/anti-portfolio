@@ -21,7 +21,19 @@ import AdminLayout from './layout/AdminLayout';
 function App() {
     const { user, loading } = useAuth();
 
-    if (loading) return <div className="h-screen w-full flex items-center justify-center bg-dark text-white">Loading...</div>;
+    if (loading) {
+        return (
+            <div className="h-screen w-full flex flex-col items-center justify-center bg-light text-darker">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary to-orange-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/25 animate-pulse mb-4">
+                    A
+                </div>
+                <div className="flex items-center gap-2.5 text-sm font-semibold text-secondary">
+                    <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                    <span>Loading Experience...</span>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <Routes>
@@ -33,9 +45,10 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
             </Route>
 
-            {/* Admin Routes */}
+            {/* Admin Authentication */}
             <Route path="/admin/login" element={!user ? <Login /> : <Navigate to="/admin" />} />
 
+            {/* Protected Admin Routes */}
             <Route path="/admin" element={user ? <AdminLayout /> : <Navigate to="/admin/login" />}>
                 <Route index element={<Dashboard />} />
                 <Route path="projects" element={<ManageProjects />} />
@@ -44,6 +57,9 @@ function App() {
                 <Route path="profile" element={<ManageProfile />} />
                 <Route path="messages" element={<Messages />} />
             </Route>
+
+            {/* Fallback to Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     );
 }
