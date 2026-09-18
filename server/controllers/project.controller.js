@@ -5,6 +5,7 @@ const getProjects = async (req, res) => {
     try {
         const projects = await prisma.project.findMany({
             orderBy: [
+                { featured: 'desc' },
                 { order: 'asc' },
                 { createdAt: 'desc' }
             ]
@@ -28,12 +29,22 @@ const getProjectById = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-}
+};
 
 const createProject = async (req, res) => {
     try {
+        const { title, description, images, techStack, liveLink, githubLink, featured, order } = req.body;
         const project = await prisma.project.create({
-            data: req.body,
+            data: {
+                title,
+                description,
+                images: Array.isArray(images) ? images : [],
+                techStack: Array.isArray(techStack) ? techStack : [],
+                liveLink: liveLink || null,
+                githubLink: githubLink || null,
+                featured: Boolean(featured),
+                order: Number(order) || 0
+            },
         });
         res.status(201).json(project);
     } catch (error) {
@@ -43,9 +54,19 @@ const createProject = async (req, res) => {
 
 const updateProject = async (req, res) => {
     try {
+        const { title, description, images, techStack, liveLink, githubLink, featured, order } = req.body;
         const project = await prisma.project.update({
             where: { id: req.params.id },
-            data: req.body,
+            data: {
+                title,
+                description,
+                images: Array.isArray(images) ? images : undefined,
+                techStack: Array.isArray(techStack) ? techStack : undefined,
+                liveLink: liveLink !== undefined ? liveLink : undefined,
+                githubLink: githubLink !== undefined ? githubLink : undefined,
+                featured: featured !== undefined ? Boolean(featured) : undefined,
+                order: order !== undefined ? Number(order) : undefined
+            },
         });
         res.json(project);
     } catch (error) {
