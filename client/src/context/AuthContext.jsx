@@ -12,6 +12,10 @@ export const AuthProvider = ({ children }) => {
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
+        const token = localStorage.getItem('auth_token');
+        if (token) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        }
         checkUserLoggedIn();
     }, []);
 
@@ -21,6 +25,8 @@ export const AuthProvider = ({ children }) => {
             setUser(data);
         } catch (error) {
             setUser(null);
+            localStorage.removeItem('auth_token');
+            delete axios.defaults.headers.common['Authorization'];
         } finally {
             setLoading(false);
         }
@@ -29,12 +35,22 @@ export const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         const { data } = await axios.post('/auth/login', { username, password });
         setUser(data);
+        if (data && data.token) {
+            localStorage.setItem('auth_token', data.token);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+        }
         return data;
     };
 
     const logout = async () => {
-        await axios.post('/auth/logout');
+        try {
+            await axios.post('/auth/logout');
+        } catch (err) {
+            // ignore
+        }
         setUser(null);
+        localStorage.removeItem('auth_token');
+        delete axios.defaults.headers.common['Authorization'];
     };
 
     return (
