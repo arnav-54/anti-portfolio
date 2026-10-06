@@ -50,7 +50,7 @@ const Home = () => {
             <div className="absolute top-20 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-orange-300/25 via-amber-200/20 to-orange-400/20 blur-3xl -z-10 pointer-events-none rounded-full" />
 
             {/* Hero Section */}
-            <section id="home" className="min-h-[92vh] flex flex-col items-center justify-center relative z-10 px-4 pt-24 pb-16">
+            <section id="home" className="min-h-[92vh] flex flex-col w-full items-center justify-center relative z-10 px-4 pt-24 pb-16">
                 <motion.div
                     initial="hidden"
                     animate="visible"
