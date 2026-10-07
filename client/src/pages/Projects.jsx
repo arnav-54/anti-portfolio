@@ -135,7 +135,7 @@ const Projects = () => {
                                                 e.target.onerror = null;
                                                 e.target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80';
                                             }}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 transition-transform"
                                         />
 
                                         {/* Featured Tag */}
