@@ -59,7 +59,7 @@ const Contact = () => {
     };
 
     // Construct deep links for Gmail and default mail client
-    const emailSubject = encodeURIComponent(formData.subject || 'Portfolio Inquiry');
+    const emailSubject = encodeURIComponent(formData.subject || 'Portfolio Inquiry - New Message');
     const emailBody = encodeURIComponent(
         `Hi Arnav,\n\n${formData.message ? formData.message + '\n\n' : ''}From: ${formData.name || 'Anonymous'}\nContact Email: ${formData.email || 'Not provided'}`
     );
