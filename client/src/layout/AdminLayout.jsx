@@ -44,7 +44,7 @@ const AdminLayout = () => {
                         <Shield size={18} />
                     </div>
                     <div>
-                        <h1 className="text-base font-bold text-white tracking-wider">ADMIN PANEL</h1>
+                        <h1 className="text-base font-bold text-white tracking-wider">ADMIN DASHBOARD</h1>
                         <p className="text-[11px] text-slate-500 font-medium">Portfolio Management</p>
                     </div>
                 </Link>
@@ -122,7 +122,7 @@ const AdminLayout = () => {
                     <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center text-white">
                         <Shield size={16} />
                     </div>
-                    <span className="font-bold text-white text-sm">ADMIN PANEL</span>
+                    <span className="font-bold text-white text-sm">ADMIN DASHBOARD</span>
                 </div>
                 <button
                     onClick={() => setMobileOpen(true)}
