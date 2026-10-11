@@ -117,7 +117,7 @@ const Dashboard = () => {
                         transition={{ delay: idx * 0.08 }}
                         key={card.title}
                         onClick={() => navigate(card.link)}
-                        className={`bg-slate-900/90 border ${card.borderColor} rounded-2xl p-5 sm:p-6 flex items-center justify-between hover:bg-slate-800/80 transition-all cursor-pointer group shadow-lg`}
+                        className={`bg-slate-900/90 border ${card.borderColor} rounded-2xl p-5 sm:p-6 flex items-center justify-between hover:bg-slate-800/80 transition-all cursor-pointer group shadow-lg hover:shadow-xl`}
                     >
                         <div>
                             <div className="flex items-center gap-2 mb-1.5">
