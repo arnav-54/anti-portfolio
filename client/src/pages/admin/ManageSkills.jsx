@@ -194,7 +194,7 @@ const ManageSkills = () => {
                         initial={{ opacity: 0, y: -20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        className={`fixed top-6 right-6 z-50 p-4 rounded-2xl flex items-center gap-3 text-sm font-bold shadow-2xl backdrop-blur-xl border ${
+                        className={`fixed top-6 right-6 z-50 shadow-2xl p-4 rounded-2xl flex items-center gap-3 text-sm font-bold shadow-2xl backdrop-blur-xl border ${
                             notification.type === 'error'
                                 ? 'bg-red-950/90 border-red-500/40 text-red-200 shadow-red-950/50'
                                 : 'bg-emerald-950/90 border-emerald-500/40 text-emerald-200 shadow-emerald-950/50'
