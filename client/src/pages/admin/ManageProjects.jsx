@@ -363,7 +363,7 @@ const ManageProjects = () => {
                                     src={firstImagePreview}
                                     alt="Preview"
                                     onError={(e) => { e.target.style.display = 'none'; }}
-                                    className="w-16 h-12 object-cover rounded-lg bg-slate-800 shrink-0"
+                                    className="w-16 h-12 object-cover rounded-lg rounded-lg bg-slate-800 shrink-0"
                                 />
                                 <div className="text-xs text-slate-400 overflow-hidden">
                                     <span className="font-semibold text-slate-200">Image Preview: </span>
