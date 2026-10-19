@@ -47,7 +47,7 @@ const updateSkill = async (req, res) => {
         const data = {};
         if (name !== undefined) data.name = name.trim();
         if (category !== undefined) data.category = category;
-        if (level !== undefined) data.level = parseInt(level, 10);
+        if (level !== undefined) data.level = Math.min(100, Math.max(0, parseInt(level, 10)));
         if (icon !== undefined) data.icon = icon;
 
         const skill = await prisma.skill.update({
