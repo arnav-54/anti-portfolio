@@ -35,6 +35,7 @@ const createExperience = async (req, res) => {
 const updateExperience = async (req, res) => {
     try {
         const { role, company, duration, description, current, startDate, endDate } = req.body;
+        console.log(`Updating experience ${req.params.id}`);
         const experience = await prisma.experience.update({
             where: { id: req.params.id },
             data: {
