@@ -59,7 +59,7 @@ const Contact = () => {
     };
 
     // Construct deep links for Gmail and default mail client
-    const emailSubject = encodeURIComponent(formData.subject || 'Portfolio Inquiry - New Message');
+    const emailSubject = encodeURIComponent(formData.subject || 'Portfolio Inquiry');
     const emailBody = encodeURIComponent(
         `Hi Arnav,\n\n${formData.message ? formData.message + '\n\n' : ''}From: ${formData.name || 'Anonymous'}\nContact Email: ${formData.email || 'Not provided'}`
     );
@@ -137,7 +137,7 @@ const Contact = () => {
                                     <button
                                         onClick={handleCopyEmail}
                                         className="text-xs text-secondary hover:text-primary flex items-center gap-1 font-semibold transition-colors"
-                                        title="Copy email to clipboard"
+                                        title="Click to copy email address to clipboard"
                                     >
                                         {copied ? (
                                             <span className="text-emerald-600 flex items-center gap-1">
