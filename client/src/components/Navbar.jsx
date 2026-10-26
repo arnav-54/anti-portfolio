@@ -57,7 +57,7 @@ const Navbar = () => {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 md:py-4 px-4 md:px-8">
             <div
-                className={`max-w-7xl mx-auto rounded-2xl transition-all px-5 md:px-7 py-3 flex justify-between items-center transition-all duration-300 ${
+                className={`max-w-7xl mx-auto rounded-2xl px-5 md:px-7 py-3 flex justify-between items-center transition-all duration-300 ${
                     scrolled
                         ? 'bg-white/85 backdrop-blur-xl border border-orange-200/80 shadow-lg shadow-orange-500/5'
                         : 'bg-white/60 backdrop-blur-md border border-orange-200/50'

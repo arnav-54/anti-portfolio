@@ -49,8 +49,3 @@ JWT_SECRET="your_secret"
 PORT=5000
 FRONTEND_URL="http://localhost:5173"
 ```
-
-## Admin Features
-- Full CRUD for Projects, Skills, and Experience
-- Responsive Mobile Sidebar
-- Direct Gmail and Email client integrations

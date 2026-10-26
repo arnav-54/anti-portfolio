@@ -133,7 +133,7 @@ const About = () => {
                                                     whileInView={{ width: `${skill.level}%` }}
                                                     transition={{ duration: 0.8, delay: 0.1 }}
                                                     viewport={{ once: true }}
-                                                    className="h-full bg-gradient-to-r from-primary via-orange-500 to-orange-400 rounded-full"
+                                                    className="h-full bg-gradient-to-r from-primary to-orange-500 rounded-full"
                                                 />
                                             </div>
                                         </motion.div>

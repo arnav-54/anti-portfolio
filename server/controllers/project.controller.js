@@ -4,7 +4,6 @@ const prisma = new PrismaClient();
 const getProjects = async (req, res) => {
     try {
         const projects = await prisma.project.findMany({
-            // Order by featured first, then order index, then date
             orderBy: [
                 { featured: 'desc' },
                 { order: 'asc' },

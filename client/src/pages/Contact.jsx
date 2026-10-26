@@ -137,7 +137,7 @@ const Contact = () => {
                                     <button
                                         onClick={handleCopyEmail}
                                         className="text-xs text-secondary hover:text-primary flex items-center gap-1 font-semibold transition-colors"
-                                        title="Click to copy email address to clipboard"
+                                        title="Copy email to clipboard"
                                     >
                                         {copied ? (
                                             <span className="text-emerald-600 flex items-center gap-1">

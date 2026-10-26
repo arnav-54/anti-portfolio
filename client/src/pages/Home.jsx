@@ -41,7 +41,7 @@ const Home = () => {
 
     const scrollToSection = (id) => {
         const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (

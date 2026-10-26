@@ -54,9 +54,3 @@
 html {
   scroll-behavior: smooth;
 }
-
-/* Smooth transitions */
-* {
-  transition-property: color, background-color, border-color;
-  transition-duration: 150ms;
-}

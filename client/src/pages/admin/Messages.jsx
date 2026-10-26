@@ -191,7 +191,7 @@ const Messages = () => {
                                     <button
                                         onClick={() => handleDelete(msg.id, msg.name)}
                                         className="p-2 bg-red-500/10 text-red-400 hover:bg-red-500/20 rounded-xl transition-colors"
-                                        title="Delete Message Permanently"
+                                        title="Delete Message"
                                     >
                                         <Trash2 size={16} />
                                     </button>
